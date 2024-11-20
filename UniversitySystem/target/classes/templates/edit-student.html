@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>编辑学生</title>
+    <link rel="stylesheet" type="text/css" href="/edit-student-style.css">
+</head>
+<body>
+<h1>编辑学生</h1>
+<form th:action="@{/students/{id}(id=${student.id})}" method="post" onsubmit="return showAlert()">
+    姓名: <input type="text" name="name" th:value="${student.name}" required><br>
+    性别: <input type="text" name="gender" th:value="${student.gender}"><br>
+    地址: <input type="text" name="address" th:value="${student.address}"><br>
+    联系方式: <input type="text" name="phone" th:value="${student.phone}"><br>
+    专业: <input type="text" name="major" th:value="${student.major}"><br>
+    <div class="button-container">
+        <button type="submit" class="button">更新</button>
+        <a href="/students" class="button">返回</a>
+    </div>
+</form>
+<script>
+    function showAlert() {
+        alert("修改成功！");
+        return true;
+    }
+</script>
+</body>
+</html>
